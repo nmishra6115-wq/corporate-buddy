@@ -11,304 +11,134 @@
             theme: {
                 extend: {
                     colors: {
-                        brand: { 50: '#eff6ff', 500: '#3b82f6', 600: '#2563eb', 700: '#1d4ed8' }
+                        brand: { 50: '#f0fdf4', 500: '#10b981', 600: '#059669', 700: '#047857' }
                     }
                 }
             }
         }
     </script>
+    <!-- Google Fonts & Custom Styles -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-slate-50 text-slate-800 font-sans antialiased min-h-screen flex flex-col">
+<body class="bg-slate-950 text-slate-100 font-sans antialiased min-h-screen flex flex-col selection:bg-emerald-500 selection:text-white">
 
-    <!-- Header / Navbar -->
-    <header class="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-slate-200">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+    <!-- Navbar -->
+    <header class="sticky top-0 z-50 bg-slate-900/80 backdrop-blur-md border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             <div class="flex items-center space-x-3">
-                <div class="w-10 h-10 rounded-xl bg-brand-600 flex items-center justify-center text-white font-bold text-xl shadow-md">CB</div>
+                <div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-emerald-600 to-teal-400 flex items-center justify-center text-white font-black text-xl shadow-lg shadow-emerald-900/40">CB</div>
                 <div>
-                    <span class="text-xl font-black tracking-tight text-slate-900">CorporateBuddy</span>
-                    <span class="hidden sm:inline-block ml-2 text-xs px-2 py-0.5 bg-blue-100 text-brand-700 rounded-full font-medium">v3.auxilio.co.in</span>
+                    <span class="text-xl font-black tracking-tight text-white">Corporate<span class="text-emerald-400">Buddy</span></span>
+                    <span class="block text-[10px] text-slate-400 font-medium tracking-wider uppercase">Free Everyday Companion</span>
                 </div>
             </div>
-            <div class="text-xs text-slate-500 font-medium">
-                Free Forever • Unified Employee Toolkit
+            <div class="hidden sm:flex items-center space-x-6 text-sm font-medium text-slate-300">
+                <a href="#utilities" class="hover:text-emerald-400 transition">Utilities</a>
+                <a href="#features" class="hover:text-emerald-400 transition">Why Us</a>
+                <span class="px-3 py-1.5 rounded-full bg-emerald-500/10 text-emerald-400 text-xs font-semibold border border-emerald-500/20">v3.0 Live</span>
             </div>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <section class="bg-gradient-to-b from-blue-900 via-slate-900 to-slate-900 text-white py-14 px-4 sm:px-6 lg:px-8 text-center relative overflow-hidden">
+    <section class="relative py-20 px-4 sm:px-6 lg:px-8 text-center overflow-hidden bg-gradient-to-b from-slate-900 via-slate-950 to-slate-950">
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(16,185,129,0.08)_0,transparent_70%)] pointer-events-none"></div>
         <div class="max-w-4xl mx-auto relative z-10">
-            <span class="inline-block py-1 px-3 rounded-full bg-blue-500/20 text-blue-300 text-xs font-semibold uppercase tracking-wider mb-4 border border-blue-400/30">Auxilio ERP & HRMS Ecosystem</span>
-            <h1 class="text-3xl sm:text-5xl font-black tracking-tight mb-4">Your Everyday Corporate Companion</h1>
-            <p class="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto mb-6">
-                Essential calculators, leave planners, payslip decoders, and career utilities designed for Indian corporate professionals.
+            <div class="inline-flex items-center space-x-2 py-1.5 px-4 rounded-full bg-emerald-500/10 text-emerald-400 text-xs font-semibold uppercase tracking-wider mb-6 border border-emerald-500/20 shadow-sm">
+                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                <span>Universal Employee Toolkit</span>
+            </div>
+            <h1 class="text-4xl sm:text-6xl font-black tracking-tight mb-6 leading-tight">
+                Your Everyday <span class="bg-gradient-to-r from-emerald-400 to-teal-300 bg-clip-text text-transparent">Corporate Companion</span>
+            </h1>
+            <p class="text-lg sm:text-xl text-slate-400 max-w-2xl mx-auto mb-10 leading-relaxed">
+                Smart salary estimators, leave planners, payslip decoders, and career tools designed for professionals across IT, Banking, Operations, and Consulting.
             </p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="#utilities" class="px-8 py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold shadow-lg shadow-emerald-600/30 transition transform hover:-translate-y-0.5">Explore All 8 Tools</a>
+            </div>
         </div>
     </section>
 
     <!-- Tools Grid Section -->
-    <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 w-full">
-        <div class="text-center mb-8">
-            <h2 class="text-2xl font-bold text-slate-900">Explore Employee Utilities</h2>
-            <p class="text-slate-600 text-sm mt-1">Click any tool below to launch the interactive calculator or assistant.</p>
+    <main id="utilities" class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 w-full">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-extrabold text-white tracking-tight">Enterprise Employee Utilities</h2>
+            <p class="text-slate-400 text-sm mt-2">Click any module to launch the interactive calculator or assistant instantly.</p>
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             <!-- Tool 1: Salary -->
-            <div onclick="openTool('salary')" class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-lg transition cursor-pointer group hover:border-blue-500">
-                <div class="w-12 h-12 rounded-xl bg-blue-50 text-brand-600 flex items-center justify-center text-xl font-bold mb-4 group-hover:bg-brand-600 group-hover:text-white transition">💰</div>
-                <h3 class="font-bold text-lg text-slate-900 mb-1">Salary Calculator</h3>
-                <p class="text-slate-500 text-sm">Optimize CTC breakdown, PF, HRA, and old vs new tax regime.</p>
+            <div onclick="openTool('salary')" class="tool-card bg-slate-900/80 backdrop-blur-sm p-6 rounded-2xl border border-slate-800 hover:border-emerald-500/50 shadow-xl hover:shadow-2xl hover:shadow-emerald-950/50 transition duration-300 cursor-pointer group">
+                <div class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-xl font-bold mb-4 group-hover:scale-110 transition duration-300 border border-emerald-500/20">💰</div>
+                <h3 class="font-bold text-lg text-white mb-2 group-hover:text-emerald-400 transition">Salary Calculator</h3>
+                <p class="text-slate-400 text-sm leading-relaxed">Optimize CTC breakdown, PF, HRA, and tax regimes seamlessly.</p>
             </div>
             <!-- Tool 2: Leave -->
-            <div onclick="openTool('leave')" class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-lg transition cursor-pointer group hover:border-emerald-500">
-                <div class="w-12 h-12 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center text-xl font-bold mb-4 group-hover:bg-emerald-600 group-hover:text-white transition">🌴</div>
-                <h3 class="font-bold text-lg text-slate-900 mb-1">Leave Planner</h3>
-                <p class="text-slate-500 text-sm">Maximize public holidays with weekends to plan long leaves efficiently.</p>
+            <div onclick="openTool('leave')" class="tool-card bg-slate-900/80 backdrop-blur-sm p-6 rounded-2xl border border-slate-800 hover:border-teal-500/50 shadow-xl hover:shadow-2xl hover:shadow-teal-950/50 transition duration-300 cursor-pointer group">
+                <div class="w-12 h-12 rounded-xl bg-teal-500/10 text-teal-400 flex items-center justify-center text-xl font-bold mb-4 group-hover:scale-110 transition duration-300 border border-teal-500/20">🌴</div>
+                <h3 class="font-bold text-lg text-white mb-2 group-hover:text-teal-400 transition">Leave Planner</h3>
+                <p class="text-slate-400 text-sm leading-relaxed">Maximize public holidays with weekends for extended getaways.</p>
             </div>
             <!-- Tool 3: Email -->
-            <div onclick="openTool('email')" class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-lg transition cursor-pointer group hover:border-purple-500">
-                <div class="w-12 h-12 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center text-xl font-bold mb-4 group-hover:bg-purple-600 group-hover:text-white transition">✉️</div>
-                <h3 class="font-bold text-lg text-slate-900 mb-1">Email Assistant</h3>
-                <p class="text-slate-500 text-sm">Draft professional resignation, escalation, and follow-up emails instantly.</p>
+            <div onclick="openTool('email')" class="tool-card bg-slate-900/80 backdrop-blur-sm p-6 rounded-2xl border border-slate-800 hover:border-cyan-500/50 shadow-xl hover:shadow-2xl hover:shadow-cyan-950/50 transition duration-300 cursor-pointer group">
+                <div class="w-12 h-12 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center text-xl font-bold mb-4 group-hover:scale-110 transition duration-300 border border-cyan-500/20">✉️</div>
+                <h3 class="font-bold text-lg text-white mb-2 group-hover:text-cyan-400 transition">Email Assistant</h3>
+                <p class="text-slate-400 text-sm leading-relaxed">Draft professional resignation and escalation emails instantly.</p>
             </div>
             <!-- Tool 4: Shift -->
-            <div onclick="openTool('shift')" class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-lg transition cursor-pointer group hover:border-amber-500">
-                <div class="w-12 h-12 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center text-xl font-bold mb-4 group-hover:bg-amber-600 group-hover:text-white transition">⏰</div>
-                <h3 class="font-bold text-lg text-slate-900 mb-1">Shift Calculator</h3>
-                <p class="text-slate-500 text-sm">Calculate night shift allowances, rotational rosters, and overtime hours.</p>
+            <div onclick="openTool('shift')" class="tool-card bg-slate-900/80 backdrop-blur-sm p-6 rounded-2xl border border-slate-800 hover:border-amber-500/50 shadow-xl hover:shadow-2xl hover:shadow-amber-950/50 transition duration-300 cursor-pointer group">
+                <div class="w-12 h-12 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center text-xl font-bold mb-4 group-hover:scale-110 transition duration-300 border border-amber-500/20">⏰</div>
+                <h3 class="font-bold text-lg text-white mb-2 group-hover:text-amber-400 transition">Shift Calculator</h3>
+                <p class="text-slate-400 text-sm leading-relaxed">Calculate night shift allowances, rotational rosters, and overtime.</p>
             </div>
             <!-- Tool 5: Payslip -->
-            <div onclick="openTool('payslip')" class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-lg transition cursor-pointer group hover:border-rose-500">
-                <div class="w-12 h-12 rounded-xl bg-rose-50 text-rose-600 flex items-center justify-center text-xl font-bold mb-4 group-hover:bg-rose-600 group-hover:text-white transition">📄</div>
-                <h3 class="font-bold text-lg text-slate-900 mb-1">Payslip Decoder</h3>
-                <p class="text-slate-500 text-sm">Deconstruct technical terms like LTA, Gratuity, and Professional Tax.</p>
+            <div onclick="openTool('payslip')" class="tool-card bg-slate-900/80 backdrop-blur-sm p-6 rounded-2xl border border-slate-800 hover:border-rose-500/50 shadow-xl hover:shadow-2xl hover:shadow-rose-950/50 transition duration-300 cursor-pointer group">
+                <div class="w-12 h-12 rounded-xl bg-rose-500/10 text-rose-400 flex items-center justify-center text-xl font-bold mb-4 group-hover:scale-110 transition duration-300 border border-rose-500/20">📄</div>
+                <h3 class="font-bold text-lg text-white mb-2 group-hover:text-rose-400 transition">Payslip Decoder</h3>
+                <p class="text-slate-400 text-sm leading-relaxed">Deconstruct technical payroll terms like LTA and Gratuity.</p>
             </div>
             <!-- Tool 6: Meeting -->
-            <div onclick="openTool('meeting')" class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-lg transition cursor-pointer group hover:border-indigo-500">
-                <div class="w-12 h-12 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center text-xl font-bold mb-4 group-hover:bg-indigo-600 group-hover:text-white transition">🤝</div>
-                <h3 class="font-bold text-lg text-slate-900 mb-1">Meeting Assistant</h3>
-                <p class="text-slate-500 text-sm">Generate structured meeting agendas and professional minutes of meeting.</p>
+            <div onclick="openTool('meeting')" class="tool-card bg-slate-900/80 backdrop-blur-sm p-6 rounded-2xl border border-slate-800 hover:border-indigo-500/50 shadow-xl hover:shadow-2xl hover:shadow-indigo-950/50 transition duration-300 cursor-pointer group">
+                <div class="w-12 h-12 rounded-xl bg-indigo-500/10 text-indigo-400 flex items-center justify-center text-xl font-bold mb-4 group-hover:scale-110 transition duration-300 border border-indigo-500/20">🤝</div>
+                <h3 class="font-bold text-lg text-white mb-2 group-hover:text-indigo-400 transition">Meeting Assistant</h3>
+                <p class="text-slate-400 text-sm leading-relaxed">Generate structured meeting agendas and meeting minutes.</p>
             </div>
             <!-- Tool 7: Expense -->
-            <div onclick="openTool('expense')" class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-lg transition cursor-pointer group hover:border-cyan-500">
-                <div class="w-12 h-12 rounded-xl bg-cyan-50 text-cyan-600 flex items-center justify-center text-xl font-bold mb-4 group-hover:bg-cyan-600 group-hover:text-white transition">🧾</div>
-                <h3 class="font-bold text-lg text-slate-900 mb-1">Expense Calculator</h3>
-                <p class="text-slate-500 text-sm">Compute per diem, client dinner caps, and travel mileage reimbursements.</p>
+            <div onclick="openTool('expense')" class="tool-card bg-slate-900/80 backdrop-blur-sm p-6 rounded-2xl border border-slate-800 hover:border-purple-500/50 shadow-xl hover:shadow-2xl hover:shadow-purple-950/50 transition duration-300 cursor-pointer group">
+                <div class="w-12 h-12 rounded-xl bg-purple-500/10 text-purple-400 flex items-center justify-center text-xl font-bold mb-4 group-hover:scale-110 transition duration-300 border border-purple-500/20">🧾</div>
+                <h3 class="font-bold text-lg text-white mb-2 group-hover:text-purple-400 transition">Expense Calculator</h3>
+                <p class="text-slate-400 text-sm leading-relaxed">Compute per diem, client dinner caps, and mileage claims.</p>
             </div>
             <!-- Tool 8: Career -->
-            <div onclick="openTool('career')" class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-lg transition cursor-pointer group hover:border-teal-500">
-                <div class="w-12 h-12 rounded-xl bg-teal-50 text-teal-600 flex items-center justify-center text-xl font-bold mb-4 group-hover:bg-teal-600 group-hover:text-white transition">🚀</div>
-                <h3 class="font-bold text-lg text-slate-900 mb-1">Career Tools</h3>
-                <p class="text-slate-500 text-sm">Notice period buyout estimators, BGV trackers, and internal mobility checklists.</p>
+            <div onclick="openTool('career')" class="tool-card bg-slate-900/80 backdrop-blur-sm p-6 rounded-2xl border border-slate-800 hover:border-emerald-500/50 shadow-xl hover:shadow-2xl hover:shadow-emerald-950/50 transition duration-300 cursor-pointer group">
+                <div class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-xl font-bold mb-4 group-hover:scale-110 transition duration-300 border border-emerald-500/20">🚀</div>
+                <h3 class="font-bold text-lg text-white mb-2 group-hover:text-emerald-400 transition">Career Tools</h3>
+                <p class="text-slate-400 text-sm leading-relaxed">Notice period buyout estimators and background verification checklists.</p>
             </div>
         </div>
     </main>
 
-    <!-- Interactive Tool Modal / Drawer -->
-    <div id="toolModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-        <div class="bg-white w-full max-w-2xl rounded-2xl shadow-2xl overflow-hidden border border-slate-200 flex flex-col max-h-[90vh]">
-            <div class="px-6 py-4 bg-slate-900 text-white flex items-center justify-between">
-                <h3 id="modalTitle" class="text-lg font-bold">Tool Title</h3>
-                <button onclick="closeTool()" class="text-slate-400 hover:text-white text-xl font-bold">&times;</button>
+    <!-- Interactive Modal -->
+    <div id="toolModal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-slate-900 w-full max-w-2xl rounded-2xl shadow-2xl overflow-hidden border border-slate-800 flex flex-col max-h-[90vh] animate-in fade-in zoom-in duration-200">
+            <div class="px-6 py-4 bg-slate-950 border-b border-slate-800 flex items-center justify-between">
+                <h3 id="modalTitle" class="text-lg font-bold text-white">Tool Title</h3>
+                <button onclick="closeTool()" class="text-slate-400 hover:text-white text-2xl font-bold">&times;</button>
             </div>
-            <div id="modalBody" class="p-6 overflow-y-auto flex-grow space-y-4">
-                <!-- Dynamic Content goes here -->
+            <div id="modalBody" class="p-6 overflow-y-auto flex-grow space-y-4 text-slate-300">
+                <!-- Dynamic content -->
             </div>
         </div>
     </div>
 
     <!-- Footer -->
-    <footer class="bg-slate-900 text-slate-400 py-8 border-t border-slate-800 text-center text-sm">
-        <p>&copy; 2026 CorporateBuddy (Auxilio Ecosystem). Built for Indian Corporate Professionals.</p>
+    <footer class="bg-slate-950 text-slate-500 py-8 border-t border-slate-900 text-center text-sm">
+        <p>&copy; 2026 CorporateBuddy. Built for Indian Corporate Professionals. Free Forever.</p>
     </footer>
 
-    <!-- JavaScript for Interactivity -->
-    <script>
-        const toolsData = {
-            salary: {
-                title: "Salary & Tax Optimizer",
-                content: `
-                    <div>
-                        <label class="block text-sm font-medium text-slate-700 mb-1">Annual CTC (in Lakhs INR):</label>
-                        <input type="number" id="salCtc" value="12" class="w-full px-3 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none" oninput="calcSalary()">
-                    </div>
-                    <div class="grid grid-cols-2 gap-4 bg-slate-50 p-4 rounded-xl border">
-                        <div>
-                            <span class="text-xs text-slate-500">Estimated Monthly In-Hand</span>
-                            <p id="resInHand" class="text-xl font-bold text-brand-600">₹82,500</p>
-                        </div>
-                        <div>
-                            <span class="text-xs text-slate-500">Annual Provident Fund (PF)</span>
-                            <p id="resPf" class="text-xl font-bold text-slate-800">₹43,200</p>
-                        </div>
-                    </div>
-                    <p class="text-xs text-slate-500">*Calculations approximate standard Indian corporate salary structuring (Basic, HRA, Special Allowance, Professional Tax, and Standard Deduction).</p>
-                `
-            },
-            leave: {
-                title: "Leave & Long Weekend Planner",
-                content: `
-                    <div>
-                        <label class="block text-sm font-medium text-slate-700 mb-1">Select Month:</label>
-                        <select class="w-full px-3 py-2 border rounded-lg" id="leaveMonth" onchange="calcLeave()">
-                            <option value="August">August (Independence Day & Janmashtami)</option>
-                            <option value="October">October (Gandhi Jayanti & Diwali)</option>
-                            <option value="December">December (Christmas & New Year)</option>
-                        </select>
-                    </div>
-                    <div id="leaveOutput" class="bg-emerald-50 p-4 rounded-xl border border-emerald-200 text-emerald-900 text-sm">
-                        <strong>Tip for October:</strong> Take 2 days of leave (Oct 21 & 22) around Diwali to enjoy a 5-day continuous break!
-                    </div>
-                `
-            },
-            email: {
-                title: "Professional Email Assistant",
-                content: `
-                    <div>
-                        <label class="block text-sm font-medium text-slate-700 mb-1">Select Template Type:</label>
-                        <select id="emailType" class="w-full px-3 py-2 border rounded-lg mb-3" onchange="updateEmail()">
-                            <option value="resignation">Standard Resignation Email</option>
-                            <option value="followup">HR Follow-up on Offer / Payroll</option>
-                            <option value="escalation">Client / Project Delay Escalation</option>
-                        </select>
-                        <label class="block text-sm font-medium text-slate-700 mb-1">Generated Draft:</label>
-                        <textarea id="emailBox" rows="6" class="w-full p-3 border rounded-lg font-mono text-xs bg-slate-50 focus:outline-none"></textarea>
-                    </div>
-                    <button onclick="navigator.clipboard.writeText(document.getElementById('emailBox').value); alert('Copied to clipboard!');" class="w-full py-2 bg-brand-600 text-white rounded-lg font-medium hover:bg-brand-700 transition">Copy Email Draft</button>
-                `
-            },
-            shift: {
-                title: "Shift Allowance & Overtime Calculator",
-                content: `
-                    <div>
-                        <label class="block text-sm font-medium text-slate-700 mb-1">Night Shift Allowance per Shift (₹):</label>
-                        <input type="number" id="shiftRate" value="350" class="w-full px-3 py-2 border rounded-lg mb-3" oninput="calcShift()">
-                        <label class="block text-sm font-medium text-slate-700 mb-1">Night Shifts Worked This Month:</label>
-                        <input type="number" id="shiftCount" value="12" class="w-full px-3 py-2 border rounded-lg mb-3" oninput="calcShift()">
-                    </div>
-                    <div class="bg-amber-50 p-4 rounded-xl border border-amber-200">
-                        <span class="text-xs text-amber-800 font-medium">Total Shift Allowance Earned:</span>
-                        <p id="shiftTotal" class="text-2xl font-bold text-amber-900">₹4,200</p>
-                    </div>
-                `
-            },
-            payslip: {
-                title: "Payslip Decoder",
-                content: `
-                    <div class="space-y-3 text-sm">
-                        <div class="p-3 bg-slate-50 rounded-lg border">
-                            <strong>LTA (Leave Travel Allowance):</strong> Tax exemption claimable twice in a block of 4 years for domestic travel expenses.
-                        </div>
-                        <div class="p-3 bg-slate-50 rounded-lg border">
-                            <strong>Gratuity:</strong> Statutory benefit paid when an employee completes 5 continuous years of service with the organization.
-                        </div>
-                        <div class="p-3 bg-slate-50 rounded-lg border">
-                            <strong>Professional Tax (PT):</strong> State-level tax (typically ₹200/month in Karnataka/Maharashtra) deducted directly by employers.
-                        </div>
-                    </div>
-                `
-            },
-            meeting: {
-                title: "Meeting Agenda & Minutes Generator",
-                content: `
-                    <div>
-                        <label class="block text-sm font-medium text-slate-700 mb-1">Meeting Topic / Title:</label>
-                        <input type="text" id="mTitle" value="Sprint 14 Retro & Planning" class="w-full px-3 py-2 border rounded-lg mb-3">
-                        <label class="block text-sm font-medium text-slate-700 mb-1">Key Action Item Assigned To:</label>
-                        <input type="text" id="mAssignee" value="Operations Team" class="w-full px-3 py-2 border rounded-lg mb-3">
-                    </div>
-                    <div class="p-4 bg-indigo-50 border border-indigo-200 rounded-xl text-xs font-mono text-indigo-900 space-y-1">
-                        <p><strong>[AGENDA]</strong> 1. Review previous metrics. 2. Identify blockers. 3. Finalize timeline.</p>
-                        <p><strong>[MOM]</strong> Minutes recorded successfully. Next sync scheduled for next Thursday.</p>
-                    </div>
-                `
-            },
-            expense: {
-                title: "Corporate Expense & Per Diem Calculator",
-                content: `
-                    <div>
-                        <label class="block text-sm font-medium text-slate-700 mb-1">Client Business Trip Days:</label>
-                        <input type="number" id="expDays" value="4" class="w-full px-3 py-2 border rounded-lg mb-3" oninput="calcExp()">
-                        <label class="block text-sm font-medium text-slate-700 mb-1">Daily Per Diem Limit (₹):</label>
-                        <input type="number" id="expLimit" value="2500" class="w-full px-3 py-2 border rounded-lg mb-3" oninput="calcExp()">
-                    </div>
-                    <div class="bg-cyan-50 p-4 rounded-xl border border-cyan-200">
-                        <span class="text-xs text-cyan-800 font-medium">Maximum Claimable Per Diem Allowance:</span>
-                        <p id="expTotal" class="text-2xl font-bold text-cyan-900">₹10,000</p>
-                    </div>
-                `
-            },
-            career: {
-                title: "Notice Period & Buyout Estimator",
-                content: `
-                    <div>
-                        <label class="block text-sm font-medium text-slate-700 mb-1">Current Monthly Basic Salary (₹):</label>
-                        <input type="number" id="carBasic" value="50000" class="w-full px-3 py-2 border rounded-lg mb-3" oninput="calcCareer()">
-                        <label class="block text-sm font-medium text-slate-700 mb-1">Days to Short-close in Notice Period:</label>
-                        <input type="number" id="carDays" value="45" class="w-full px-3 py-2 border rounded-lg mb-3" oninput="calcCareer()">
-                    </div>
-                    <div class="bg-teal-50 p-4 rounded-xl border border-teal-200">
-                        <span class="text-xs text-teal-800 font-medium">Estimated Notice Buyout Amount:</span>
-                        <p id="carTotal" class="text-2xl font-bold text-teal-900">₹75,000</p>
-                    </div>
-                `
-            }
-        };
-
-        function openTool(toolKey) {
-            const data = toolsData[toolKey];
-            document.getElementById('modalTitle').innerText = data.title;
-            document.getElementById('modalBody').innerHTML = data.content;
-            document.getElementById('toolModal').classList.remove('hidden');
-            if(toolKey === 'email') updateEmail();
-        }
-
-        function closeTool() {
-            document.getElementById('toolModal').classList.add('hidden');
-        }
-
-        function calcSalary() {
-            const ctc = parseFloat(document.getElementById('salCtc').value) || 0;
-            const annualNet = ctc * 100000 * 0.82; // approx after tax/pf
-            const monthly = Math.round(annualNet / 12);
-            const pf = Math.round(ctc * 100000 * 0.036);
-            document.getElementById('resInHand').innerText = '₹' + monthly.toLocaleString('en-IN');
-            document.getElementById('resPf').innerText = '₹' + pf.toLocaleString('en-IN');
-        }
-
-        function updateEmail() {
-            const type = document.getElementById('emailType').value;
-            let text = "";
-            if(type === 'resignation') {
-                text = "Dear Manager,\n\nPlease accept this email as formal notification that I am resigning from my position as [Role] at [Company]. My last working day will be [Date], adhering to the standard notice period clause.\n\nThank you for the guidance and support during my tenure.\n\nBest regards,\n[Your Name]";
-            } else if(type === 'followup') {
-                text = "Dear HR Team,\n\nI am writing to follow up on the status of my reimbursement / joining formalities. Could you please provide an update on when this will be processed?\n\nThank you,\n[Your Name]";
-            } else {
-                text = "Hi Team,\n\nI am writing to highlight a bottleneck regarding [Issue/Dependency]. If not resolved by [Date], it may impact our delivery timeline.\n\nAppreciate your prompt attention to this matter.\n\nRegards,\n[Your Name]";
-            }
-            document.getElementById('emailBox').value = text;
-        }
-
-        function calcShift() {
-            const rate = parseFloat(document.getElementById('shiftRate').value) || 0;
-            const count = parseFloat(document.getElementById('shiftCount').value) || 0;
-            document.getElementById('shiftTotal').innerText = '₹' + (rate * count).toLocaleString('en-IN');
-        }
-
-        function calcExp() {
-            const days = parseFloat(document.getElementById('expDays').value) || 0;
-            const limit = parseFloat(document.getElementById('expLimit').value) || 0;
-            document.getElementById('expTotal').innerText = '₹' + (days * limit).toLocaleString('en-IN');
-        }
-
-        function calcCareer() {
-            const basic = parseFloat(document.getElementById('carBasic').value) || 0;
-            const days = parseFloat(document.getElementById('carDays').value) || 0;
-            const daily = basic / 30;
-            document.getElementById('carTotal').innerText = '₹' + Math.round(daily * days).toLocaleString('en-IN');
-        }
-    </script>
+    <!-- Script File -->
+    <script src="script.js"></script>
 </body>
 </html>
