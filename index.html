@@ -17,13 +17,13 @@
             }
         }
     </script>
-    <!-- Google Fonts & Custom Styles -->
+    <!-- Google Fonts & Custom Stylesheet -->
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="bg-slate-950 text-slate-100 font-sans antialiased min-h-screen flex flex-col selection:bg-emerald-500 selection:text-white">
 
-    <!-- Navbar -->
+    <!-- ==================== SECTION: NAVBAR ==================== -->
     <header class="sticky top-0 z-50 bg-slate-900/80 backdrop-blur-md border-b border-slate-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             <div class="flex items-center space-x-3">
@@ -36,12 +36,12 @@
             <div class="hidden sm:flex items-center space-x-6 text-sm font-medium text-slate-300">
                 <a href="#utilities" class="hover:text-emerald-400 transition">Utilities</a>
                 <a href="https://amldecode.in" target="_blank" class="hover:text-emerald-400 transition text-emerald-400 font-semibold flex items-center gap-1">AML/KYC Hub ↗</a>
-                <span class="px-3 py-1.5 rounded-full bg-emerald-500/10 text-emerald-400 text-xs font-semibold border border-emerald-500/20">v3.5 Pro</span>
+                <span class="px-3 py-1.5 rounded-full bg-emerald-500/10 text-emerald-400 text-xs font-semibold border border-emerald-500/20">v4.0 Pro</span>
             </div>
         </div>
     </header>
 
-    <!-- Hero Section -->
+    <!-- ==================== SECTION: HERO ==================== -->
     <section class="relative py-20 px-4 sm:px-6 lg:px-8 text-center overflow-hidden bg-gradient-to-b from-slate-900 via-slate-950 to-slate-950">
         <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(16,185,129,0.08)_0,transparent_70%)] pointer-events-none"></div>
         <div class="max-w-4xl mx-auto relative z-10">
@@ -53,15 +53,12 @@
                 Your Everyday <span class="bg-gradient-to-r from-emerald-400 to-teal-300 bg-clip-text text-transparent">Corporate Companion</span>
             </h1>
             <p class="text-lg sm:text-xl text-slate-400 max-w-2xl mx-auto mb-10 leading-relaxed">
-                Comprehensive tax calculators with state-wise professional tax, smart AI-style email & meeting drafting assistants, payslip decoders, and career portals.
+                Comprehensive tax calculators, state holiday planners, AI-style email & meeting drafting assistants, document payslip decoders, and career hubs.
             </p>
-            <div class="flex flex-wrap justify-center gap-4">
-                <a href="#utilities" class="px-8 py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold shadow-lg shadow-emerald-600/30 transition transform hover:-translate-y-0.5">Explore All Tools</a>
-            </div>
         </div>
     </section>
 
-    <!-- Tools Grid Section -->
+    <!-- ==================== SECTION: TOOLS GRID ==================== -->
     <main id="utilities" class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 w-full">
         <div class="text-center mb-12">
             <h2 class="text-3xl font-extrabold text-white tracking-tight">Professional Employee Utilities</h2>
@@ -69,49 +66,49 @@
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            <!-- Tool 1: Salary -->
+            <!-- Tool Card 1: Salary Calculator -->
             <div onclick="openTool('salary')" class="tool-card bg-slate-900/80 backdrop-blur-sm p-6 rounded-2xl border border-slate-800 hover:border-emerald-500/50 shadow-xl cursor-pointer group">
                 <div class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-xl font-bold mb-4 group-hover:scale-110 transition border border-emerald-500/20">💰</div>
                 <h3 class="font-bold text-lg text-white mb-2 group-hover:text-emerald-400 transition">Salary & Tax Calculator</h3>
                 <p class="text-slate-400 text-sm leading-relaxed">Detailed breakdown with Indian PF, state professional tax, and tax regime comparison.</p>
             </div>
-            <!-- Tool 2: Leave -->
+            <!-- Tool Card 2: Leave Planner -->
             <div onclick="openTool('leave')" class="tool-card bg-slate-900/80 backdrop-blur-sm p-6 rounded-2xl border border-slate-800 hover:border-teal-500/50 shadow-xl cursor-pointer group">
                 <div class="w-12 h-12 rounded-xl bg-teal-500/10 text-teal-400 flex items-center justify-center text-xl font-bold mb-4 group-hover:scale-110 transition border border-teal-500/20">🌴</div>
                 <h3 class="font-bold text-lg text-white mb-2 group-hover:text-teal-400 transition">State Leave Planner</h3>
                 <p class="text-slate-400 text-sm leading-relaxed">State-wise Indian holiday calendar and month-by-month long weekend tips.</p>
             </div>
-            <!-- Tool 3: Email -->
+            <!-- Tool Card 3: Email Assistant -->
             <div onclick="openTool('email')" class="tool-card bg-slate-900/80 backdrop-blur-sm p-6 rounded-2xl border border-slate-800 hover:border-cyan-500/50 shadow-xl cursor-pointer group">
                 <div class="w-12 h-12 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center text-xl font-bold mb-4 group-hover:scale-110 transition border border-cyan-500/20">✉️</div>
                 <h3 class="font-bold text-lg text-white mb-2 group-hover:text-cyan-400 transition">Email Assistant</h3>
                 <p class="text-slate-400 text-sm leading-relaxed">Type your requirement and generate fully editable, copyable professional emails.</p>
             </div>
-            <!-- Tool 4: Shift -->
+            <!-- Tool Card 4: Shift Calculator -->
             <div onclick="openTool('shift')" class="tool-card bg-slate-900/80 backdrop-blur-sm p-6 rounded-2xl border border-slate-800 hover:border-amber-500/50 shadow-xl cursor-pointer group">
                 <div class="w-12 h-12 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center text-xl font-bold mb-4 group-hover:scale-110 transition border border-amber-500/20">⏰</div>
                 <h3 class="font-bold text-lg text-white mb-2 group-hover:text-amber-400 transition">Shift Calculator</h3>
                 <p class="text-slate-400 text-sm leading-relaxed">Calculate night shift allowances, rotational rosters, and overtime hours.</p>
             </div>
-            <!-- Tool 5: Payslip -->
+            <!-- Tool Card 5: Payslip Decoder -->
             <div onclick="openTool('payslip')" class="tool-card bg-slate-900/80 backdrop-blur-sm p-6 rounded-2xl border border-slate-800 hover:border-rose-500/50 shadow-xl cursor-pointer group">
                 <div class="w-12 h-12 rounded-xl bg-rose-500/10 text-rose-400 flex items-center justify-center text-xl font-bold mb-4 group-hover:scale-110 transition border border-rose-500/20">📄</div>
                 <h3 class="font-bold text-lg text-white mb-2 group-hover:text-rose-400 transition">Payslip & Offer Decoder</h3>
-                <p class="text-slate-400 text-sm leading-relaxed">Paste your offer letter breakdown to decode deductions, in-hand, and net benefits.</p>
+                <p class="text-slate-400 text-sm leading-relaxed">Upload or paste your offer/payslip document to decode salary structure and deductions.</p>
             </div>
-            <!-- Tool 6: Meeting -->
+            <!-- Tool Card 6: Meeting Assistant -->
             <div onclick="openTool('meeting')" class="tool-card bg-slate-900/80 backdrop-blur-sm p-6 rounded-2xl border border-slate-800 hover:border-indigo-500/50 shadow-xl cursor-pointer group">
                 <div class="w-12 h-12 rounded-xl bg-indigo-500/10 text-indigo-400 flex items-center justify-center text-xl font-bold mb-4 group-hover:scale-110 transition border border-indigo-500/20">🤝</div>
                 <h3 class="font-bold text-lg text-white mb-2 group-hover:text-indigo-400 transition">Meeting Assistant</h3>
-                <p class="text-slate-400 text-sm leading-relaxed">Paste rough meeting notes into a notepad to generate formatted Minutes of Meeting (MoM).</p>
+                <p class="text-slate-400 text-sm leading-relaxed">Paste brief meeting notes to instantly synthesize and generate complete Minutes of Meeting (MoM).</p>
             </div>
-            <!-- Tool 7: Expense -->
+            <!-- Tool Card 7: Expense Calculator -->
             <div onclick="openTool('expense')" class="tool-card bg-slate-900/80 backdrop-blur-sm p-6 rounded-2xl border border-slate-800 hover:border-purple-500/50 shadow-xl cursor-pointer group">
                 <div class="w-12 h-12 rounded-xl bg-purple-500/10 text-purple-400 flex items-center justify-center text-xl font-bold mb-4 group-hover:scale-110 transition border border-purple-500/20">🧾</div>
                 <h3 class="font-bold text-lg text-white mb-2 group-hover:text-purple-400 transition">Expense Calculator</h3>
                 <p class="text-slate-400 text-sm leading-relaxed">Compute per diem, client dinner caps, and travel mileage claims.</p>
             </div>
-            <!-- Tool 8: Career -->
+            <!-- Tool Card 8: Career Tool -->
             <div onclick="openCareerTool()" class="tool-card bg-slate-900/80 backdrop-blur-sm p-6 rounded-2xl border border-slate-800 hover:border-emerald-500/50 shadow-xl cursor-pointer group">
                 <div class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center text-xl font-bold mb-4 group-hover:scale-110 transition border border-emerald-500/20">🚀</div>
                 <h3 class="font-bold text-lg text-white mb-2 group-hover:text-emerald-400 transition">AML/KYC Career Hub</h3>
@@ -120,7 +117,7 @@
         </div>
     </main>
 
-    <!-- Interactive Modal -->
+    <!-- ==================== SECTION: MODAL POPUP ==================== -->
     <div id="toolModal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
         <div class="bg-slate-900 w-full max-w-3xl rounded-2xl shadow-2xl overflow-hidden border border-slate-800 flex flex-col max-h-[90vh]">
             <div class="px-6 py-4 bg-slate-950 border-b border-slate-800 flex items-center justify-between">
@@ -128,17 +125,17 @@
                 <button onclick="closeTool()" class="text-slate-400 hover:text-white text-2xl font-bold">&times;</button>
             </div>
             <div id="modalBody" class="p-6 overflow-y-auto flex-grow space-y-4 text-slate-300">
-                <!-- Dynamic content -->
+                <!-- Dynamic content injected via script.js -->
             </div>
         </div>
     </div>
 
-    <!-- Footer -->
+    <!-- ==================== SECTION: FOOTER ==================== -->
     <footer class="bg-slate-950 text-slate-500 py-8 border-t border-slate-900 text-center text-sm">
         <p>&copy; 2026 CorporateBuddy. Built for Indian Corporate Professionals. Free Forever.</p>
     </footer>
 
-    <!-- Script File -->
+    <!-- Main JavaScript File -->
     <script src="script.js"></script>
 </body>
 </html>

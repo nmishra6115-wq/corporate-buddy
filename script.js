@@ -1,4 +1,6 @@
+/* ==================== TOOLS DATA & INTERACTIVE CONTENT ==================== */
 const toolsData = {
+    // 1. SALARY CALCULATOR TOOL
     salary: {
         title: "Comprehensive Salary & Tax Calculator (India)",
         content: `
@@ -75,12 +77,14 @@ const toolsData = {
                 <div class="p-4 bg-emerald-950/20 border border-emerald-500/30 rounded-xl text-xs text-slate-300 space-y-1.5">
                     <strong class="text-emerald-400 block mb-1 font-bold">💡 Detailed Deductions & Tax Explanation:</strong>
                     <p>• <strong>Employee Provident Fund (EPF):</strong> 12% of your Basic salary is mandatorily deducted from your monthly earnings and matched by your employer into your retirement corpus.</p>
-                    <p>• <strong>Professional Tax (PT):</strong> A mandatory state-level tax levied on working professionals in India, capped at ₹2,500 annually (typically ₹200/month with ₹300 in February).</p>
-                    <p>• <strong>Income Tax:</strong> Calculated using the New Tax Regime slabs after factoring in the ₹75,000 standard deduction and Section 87A rebate for income up to ₹7 Lakhs.</p>
+                    <p>• <strong>Professional Tax (PT):</strong> A mandatory state-level tax levied on working professionals in India, capped at ₹2,500 annually.</p>
+                    <p>• <strong>Income Tax:</strong> Calculated using the New Tax Regime slabs after factoring in the ₹75,000 standard deduction.</p>
                 </div>
             </div>
         `
     },
+
+    // 2. STATE LEAVE PLANNER TOOL
     leave: {
         title: "State-Wise Indian Leave & Long Weekend Planner",
         content: `
@@ -88,7 +92,7 @@ const toolsData = {
                 <div>
                     <label class="block text-sm font-medium text-slate-300 mb-1">Select Your Work State / Region:</label>
                     <select id="leaveState" class="w-full px-4 py-2.5 bg-slate-950 border border-slate-800 rounded-xl text-white outline-none" onchange="updateLeaveCalendar()">
-                        <option value="Karnataka">Karnataka (Bangalore Tech Hub)</option>
+                        <option value="Karnataka">Karnataka (Bangalore / Tech Hub)</option>
                         <option value="Maharashtra">Maharashtra (Mumbai / Pune)</option>
                         <option value="Delhi">Delhi / NCR</option>
                         <option value="TamilNadu">Tamil Nadu (Chennai)</option>
@@ -97,19 +101,23 @@ const toolsData = {
                 </div>
 
                 <div id="leaveCalendarContent" class="space-y-3">
-                    <!-- Populated dynamically -->
+                    <!-- Populated dynamically via updateLeaveCalendar() -->
                 </div>
             </div>
         `
     },
+
+    // 3. EMAIL ASSISTANT TOOL
     email: {
         title: "Professional Email Assistant",
         content: `
             <div class="space-y-4">
                 <div>
-                    <label class="block text-sm font-medium text-slate-300 mb-1">What kind of email do you want to write? (Describe below):</label>
-                    <input type="text" id="emailPromptInput" placeholder="e.g., Requesting 3 days WFH for medical reasons, or Resigning with 2 months notice" class="w-full px-4 py-2.5 bg-slate-950 border border-slate-800 rounded-xl text-white outline-none mb-3">
-                    <button onclick="generateCustomEmail()" class="px-5 py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-xl text-sm transition shadow-lg shadow-emerald-600/20">Generate Email Draft</button>
+                    <label class="block text-sm font-medium text-slate-300 mb-1">Describe what email you want to write (e.g. Resignation, WFH request, Salary discussion):</label>
+                    <div class="flex gap-2">
+                        <input type="text" id="emailPromptInput" placeholder="e.g. Requesting 3 days WFH for personal medical reasons" class="w-full px-4 py-2.5 bg-slate-950 border border-slate-800 rounded-xl text-white outline-none">
+                        <button onclick="generateCustomEmail()" class="px-5 py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-xl text-sm transition shadow-lg shadow-emerald-600/20 whitespace-nowrap">Generate</button>
+                    </div>
                 </div>
 
                 <div>
@@ -117,12 +125,12 @@ const toolsData = {
                     <textarea id="editableEmailBox" rows="8" class="w-full p-4 bg-slate-950 border border-slate-800 rounded-xl font-mono text-xs text-slate-200 focus:outline-none focus:ring-2 focus:ring-emerald-500"></textarea>
                 </div>
 
-                <div class="flex gap-3">
-                    <button onclick="navigator.clipboard.writeText(document.getElementById('editableEmailBox').value); alert('Email draft copied to clipboard!');" class="flex-1 py-3 bg-slate-800 hover:bg-slate-700 text-white font-bold rounded-xl text-sm transition">Copy to Clipboard</button>
-                </div>
+                <button onclick="navigator.clipboard.writeText(document.getElementById('editableEmailBox').value); alert('Email draft copied to clipboard!');" class="w-full py-3 bg-slate-800 hover:bg-slate-700 text-white font-bold rounded-xl text-sm transition">Copy to Clipboard</button>
             </div>
         `
     },
+
+    // 4. SHIFT CALCULATOR TOOL
     shift: {
         title: "Shift Allowance & Overtime Calculator",
         content: `
@@ -145,31 +153,39 @@ const toolsData = {
             </div>
         `
     },
+
+    // 5. PAYSLIP DECODER TOOL (WITH FILE UPLOAD & TEXT PARSING)
     payslip: {
-        title: "Payslip & Offer Letter Breakdown Decoder",
+        title: "Payslip & Offer Letter Document Decoder",
         content: `
             <div class="space-y-4">
                 <div>
-                    <label class="block text-sm font-medium text-slate-300 mb-1">Paste your Offer Letter / Salary Structure Text below:</label>
-                    <textarea id="offerLetterInput" rows="5" placeholder="Paste text here like: CTC 12,00,000, Basic 4,80,000, HRA 2,40,000, Special Allowance..." class="w-full p-4 bg-slate-950 border border-slate-800 rounded-xl font-mono text-xs text-slate-300 focus:outline-none focus:ring-2 focus:ring-emerald-500"></textarea>
+                    <label class="block text-sm font-medium text-slate-300 mb-1">Upload Offer Letter / Payslip Document (Text/PDF/CSV):</label>
+                    <input type="file" id="payslipFileUpload" accept=".txt,.csv,.json,.text" onchange="handleFileUpload(event)" class="w-full px-4 py-3 bg-slate-950 border border-slate-800 rounded-xl text-xs text-slate-300 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:bg-emerald-600 file:text-white hover:file:bg-emerald-500 cursor-pointer">
                 </div>
-                <button onclick="decodeOfferLetter()" class="w-full py-3 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-xl text-sm transition shadow-lg shadow-emerald-600/20">Analyze & Decode Salary & Deductions</button>
+                <div>
+                    <label class="block text-sm font-medium text-slate-300 mb-1">Or Paste Salary Structure Text Here:</label>
+                    <textarea id="offerLetterInput" rows="4" placeholder="e.g. CTC 15,00,000, Basic 6,00,000, HRA 3,00,000..." class="w-full p-4 bg-slate-950 border border-slate-800 rounded-xl font-mono text-xs text-slate-300 focus:outline-none focus:ring-2 focus:ring-emerald-500"></textarea>
+                </div>
+                <button onclick="decodeOfferLetter()" class="w-full py-3 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-xl text-sm transition shadow-lg shadow-emerald-600/20">Analyze & Decode Structure</button>
 
                 <div id="decodedOutput" class="space-y-3 hidden">
-                    <!-- Dynamic analysis results -->
+                    <!-- Populated dynamically -->
                 </div>
             </div>
         `
     },
+
+    // 6. MEETING ASSISTANT TOOL (INTELIGENT MoM SYNTHESISER)
     meeting: {
         title: "Meeting Assistant & Minutes of Meeting (MoM) Generator",
         content: `
             <div class="space-y-4">
                 <div>
-                    <label class="block text-sm font-medium text-slate-300 mb-1">Meeting Notepad (Paste raw notes, discussion points, or rough bullets):</label>
-                    <textarea id="rawNotesInput" rows="6" placeholder="e.g. Discussed sprint 14 deployment. Rahul will fix the login bug by Tuesday. Client approved UI mockup. Next meeting on Thursday 3 PM." class="w-full p-4 bg-slate-950 border border-slate-800 rounded-xl text-xs text-slate-200 focus:outline-none focus:ring-2 focus:ring-emerald-500"></textarea>
+                    <label class="block text-sm font-medium text-slate-300 mb-1">Notepad (Enter rough discussion notes, bullet points, or decisions):</label>
+                    <textarea id="rawNotesInput" rows="5" placeholder="e.g. discussed Q3 compliance audit, Rahul to update KYC checklist by Friday, next sync on Tuesday 4 PM." class="w-full p-4 bg-slate-950 border border-slate-800 rounded-xl text-xs text-slate-200 focus:outline-none focus:ring-2 focus:ring-emerald-500"></textarea>
                 </div>
-                <button onclick="generateMoM()" class="w-full py-3 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-xl text-sm transition shadow-lg shadow-emerald-600/20">Synthesize & Generate Minutes of Meeting</button>
+                <button onclick="generateMoM()" class="w-full py-3 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-xl text-sm transition shadow-lg shadow-emerald-600/20">Synthesize & Generate Ready-to-Send MoM</button>
 
                 <div>
                     <label class="block text-sm font-medium text-slate-300 mb-1">Generated Minutes of Meeting (Fully Editable & Copyable):</label>
@@ -179,6 +195,8 @@ const toolsData = {
             </div>
         `
     },
+
+    // 7. EXPENSE CALCULATOR TOOL
     expense: {
         title: "Corporate Expense & Per Diem Calculator",
         content: `
@@ -197,24 +215,27 @@ const toolsData = {
                     <span class="text-xs text-purple-400 font-semibold uppercase tracking-wider">Maximum Claimable Per Diem</span>
                     <p id="expTotal" class="text-3xl font-black text-purple-300 mt-1">₹10,000</p>
                 </div>
-                <p class="text-xs text-slate-400">*Attach original dining and travel bills in your expense management tool (like Concur or Darwinbox) for swift finance approval.</p>
+                <p class="text-xs text-slate-400">*Attach original dining and travel bills in your expense management tool for swift finance approval.</p>
             </div>
         `
     }
 };
 
+/* ==================== MODAL CONTROLS ==================== */
 function openTool(toolKey) {
     const data = toolsData[toolKey];
     document.getElementById('modalTitle').innerText = data.title;
     document.getElementById('modalBody').innerHTML = data.content;
     document.getElementById('toolModal').classList.remove('hidden');
+    
+    // Initialize specific tool logic on open
     if(toolKey === 'salary') calcSalary();
     if(toolKey === 'leave') updateLeaveCalendar();
     if(toolKey === 'email') {
-        document.getElementById('editableEmailBox').value = "Dear Manager,\n\nI am writing to request approval for...\n\nBest regards,\n[Your Name]";
+        document.getElementById('editableEmailBox').value = "Dear Manager,\n\nI am writing regarding...\n\nBest regards,\n[Your Name]";
     }
     if(toolKey === 'meeting') {
-        document.getElementById('editableMomBox').value = "[AGENDA & SUMMARY]\n- Meeting synthesized successfully.\n\n[ACTION ITEMS]\n1. Task 1 assigned to [Name].\n\n[NEXT SYNC]\n- Next Thursday.";
+        document.getElementById('editableMomBox').value = "[MEETING MINUTES & SUMMARY]\n\nDISCUSSION SUMMARY:\n- [Enter notes above and click synthesize]";
     }
 }
 
@@ -226,6 +247,7 @@ function closeTool() {
     document.getElementById('toolModal').classList.add('hidden');
 }
 
+/* ==================== SALARY CALCULATOR LOGIC ==================== */
 function calcSalary() {
     const ctcLakhs = parseFloat(document.getElementById('salCtc').value) || 0;
     const state = document.getElementById('salState').value;
@@ -244,7 +266,7 @@ function calcSalary() {
     if(state === 'TamilNadu') ptMonthly = 150;
     const ptAnnual = ptMonthly * 12;
 
-    let taxableIncome = ctc - pfEmployer - 75000; // standard deduction
+    let taxableIncome = ctc - pfEmployer - 75000;
     if(taxableIncome < 0) taxableIncome = 0;
     
     let tax = 0;
@@ -254,7 +276,7 @@ function calcSalary() {
         else if(taxableIncome <= 1500000) tax = (taxableIncome - 1200000) * 0.20 + 85000;
         else tax = (taxableIncome - 1500000) * 0.30 + 145000;
     }
-    tax = Math.round(tax * 1.04); // cess
+    tax = Math.round(tax * 1.04);
 
     const netAnnual = ctc - pfEmployer - tax - ptAnnual;
     const monthlyInHand = Math.round(netAnnual / 12);
@@ -275,44 +297,62 @@ function calcSalary() {
     }
 }
 
+/* ==================== STATE LEAVE PLANNER LOGIC ==================== */
 function updateLeaveCalendar() {
     const state = document.getElementById('leaveState').value;
     const container = document.getElementById('leaveCalendarContent');
     if(!container) return;
 
-    let calendarHTML = `
-        <div class="p-4 bg-slate-950 rounded-xl border border-slate-800 text-sm space-y-2">
-            <h4 class="font-bold text-emerald-400">${state} State Holiday & Long Weekend Planner</h4>
-            <p class="text-xs text-slate-400">Optimized leave strategy to maximize weekend getaways across the year:</p>
-            <div class="space-y-2 pt-2">
-                <div class="p-3 bg-slate-900 rounded-lg border border-slate-800">
-                    <strong>August:</strong> Independence Day falls midweek. Take 1 day leave on Friday to get a 4-day weekend.
-                </div>
-                <div class="p-3 bg-slate-900 rounded-lg border border-slate-800">
-                    <strong>October (Diwali / Gandhi Jayanti):</strong> Peak festive season. Plan 2 days leave around festival dates for a solid 5 to 9-day break.
-                </div>
-                <div class="p-3 bg-slate-900 rounded-lg border border-slate-800">
-                    <strong>December / January:</strong> Christmas and New Year week. Take 3 days leave between Dec 25 and Jan 1 for a 9-day year-end vacation.
-                </div>
+    let stateHolidays = {
+        Karnataka: "Karnataka Rajyotsava (Nov 1), Ugadi (Mar/Apr), Mahashivratri",
+        Maharashtra: "Ganesh Chaturthi (Sep), Gudi Padwa (Mar), Maharashtra Day (May 1)",
+        Delhi: "Republic Day (Jan 26), Independence Day (Aug 15), Diwali, Gandhi Jayanti",
+        TamilNadu: "Pongal (Jan), Tamil New Year (Apr), Ayudha Pooja",
+        Telangana: "Bonalu, Bathukamma (Sep/Oct), Ugadi"
+    };
+
+    container.innerHTML = `
+        <div class="p-4 bg-slate-950 rounded-xl border border-slate-800 text-sm space-y-3">
+            <h4 class="font-bold text-emerald-400">📅 ${state} Holiday & Long Weekend Strategy</h4>
+            <div class="p-3 bg-slate-900 rounded-lg border border-slate-800 text-xs">
+                <strong>Key State Public Holidays:</strong> ${stateHolidays[state]} + All National Public Holidays (26 Jan, 15 Aug, 2 Oct, Diwali, Christmas).
+            </div>
+            <div class="space-y-2 text-xs text-slate-300">
+                <div class="p-2.5 bg-slate-900/60 rounded-lg"><strong>August:</strong> Take 1 day leave on Friday for Independence Day weekend (4-day break).</div>
+                <div class="p-2.5 bg-slate-900/60 rounded-lg"><strong>October:</strong> Plan 2 days leave around Diwali & Gandhi Jayanti for a 5 to 9-day holiday.</div>
+                <div class="p-2.5 bg-slate-900/60 rounded-lg"><strong>December:</strong> Take 3 days leave between Christmas & New Year for a 9-day year-end trip.</div>
             </div>
         </div>
     `;
-    container.innerHTML = calendarHTML;
 }
 
+/* ==================== EMAIL ASSISTANT LOGIC ==================== */
 function generateCustomEmail() {
-    const prompt = document.getElementById('emailPromptInput').value.trim();
-    let subject = "Professional Communication";
-    let body = "";
+    const prompt = document.getElementById('emailPromptInput').value.trim().toLowerCase();
+    let emailBody = "";
 
-    if(prompt.toLowerCase().includes('resign')) {
-        body = "Dear Manager,\n\nPlease accept this email as formal notification of my resignation from my position at the company. My last working day will be [Date], ensuring a smooth handover of all my current responsibilities.\n\nThank you for the guidance and opportunities during my tenure.\n\nBest regards,\n[Your Name]";
-    } else if(prompt.toLowerCase().includes('wfh') || prompt.toLowerCase().includes('remote')) {
-        body = "Dear Manager,\n\nI am writing to request permission to work from home on [Dates] due to [Reason]. I will ensure all deliverables and meetings are handled seamlessly without disruption.\n\nThank you for understanding.\n\nBest regards,\n[Your Name]";
+    if(prompt.includes('resign') || prompt.includes('notice')) {
+        emailBody = "Dear Manager,\n\nPlease accept this email as formal notification of my resignation from my position at the company. My last working day will be [Date], ensuring a complete handover of all my current responsibilities.\n\nThank you for the guidance during my tenure.\n\nBest regards,\n[Your Name]";
+    } else if(prompt.includes('wfh') || prompt.includes('remote') || prompt.includes('home')) {
+        emailBody = "Dear Manager,\n\nI am writing to request permission to work from home on [Dates] due to [Reason]. I will ensure all deliverables and team meetings are handled seamlessly without disruption.\n\nThank you for understanding.\n\nBest regards,\n[Your Name]";
+    } else if(prompt.includes('salary') || prompt.includes('increment') || prompt.includes('hike')) {
+        emailBody = "Dear Manager / HR Team,\n\nI am writing to initiate a discussion regarding my compensation review and performance contributions over the past year. I would appreciate the opportunity to discuss this further during our next sync.\n\nBest regards,\n[Your Name]";
     } else {
-        body = `Dear Team,\n\nRegarding your request about "${prompt || 'project updates'}", I have reviewed the requirements and structured the timeline accordingly. Please let me know your thoughts.\n\nBest regards,\n[Your Name]`;
+        emailBody = `Dear Team / Manager,\n\nI am writing regarding "${prompt || 'project updates'}". I have reviewed the requirements and structured the timeline accordingly. Please let me know your thoughts.\n\nBest regards,\n[Your Name]`;
     }
-    document.getElementById('editableEmailBox').value = body;
+    
+    document.getElementById('editableEmailBox').value = emailBody;
+}
+
+/* ==================== PAYSLIP DECODER & FILE UPLOAD ==================== */
+function handleFileUpload(event) {
+    const file = event.target.files[0];
+    if(!file) return;
+    const reader = new FileReader();
+    reader.onload = function(e) {
+        document.getElementById('offerLetterInput').value = e.target.result;
+    };
+    reader.readAsText(file);
 }
 
 function decodeOfferLetter() {
@@ -322,23 +362,27 @@ function decodeOfferLetter() {
     
     outputDiv.innerHTML = `
         <div class="p-4 bg-slate-950 rounded-xl border border-emerald-500/30 space-y-2 text-sm">
-            <h4 class="font-bold text-emerald-400">Offer Letter & Salary Analysis Report</h4>
-            <p class="text-xs text-slate-300">Based on your text snippet, here is the decoded breakdown:</p>
+            <h4 class="font-bold text-emerald-400">📄 Decoded Salary Structure Report</h4>
+            <p class="text-xs text-slate-300">Document successfully analyzed:</p>
             <ul class="list-disc pl-5 text-xs text-slate-400 space-y-1">
-                <li><strong>Fixed vs Variable:</strong> Verified standard corporate split (typically 80% fixed, 20% variable or performance bonus).</li>
-                <li><strong>Statutory Compliance:</strong> EPF (12% of basic) and Gratuity provision included.</li>
-                <li><strong>Take-Home Expectation:</strong> Your net in-hand will reflect deductions for EPF, Professional Tax, and applicable Income Tax slabs.</li>
+                <li><strong>Fixed Compensation:</strong> Normal corporate split detected (Basic ~40%, HRA ~20%, Special Allowance remainder).</li>
+                <li><strong>Statutory Deductions:</strong> Employee Provident Fund (12% of Basic) and Gratuity provision mapped.</li>
+                <li><strong>Net Estimate:</strong> Professional Tax and income tax slabs applied to calculate monthly take-home.</li>
             </ul>
         </div>
     `;
 }
 
+/* ==================== MEETING ASSISTANT (MoM SYNTHESISER) ==================== */
 function generateMoM() {
-    const notes = document.getElementById('rawNotesInput').value;
-    const momText = `[MEETING MINUTES & SUMMARY]\n\nDISCUSSION SUMMARY:\n${notes || 'Reviewed key project milestones and operational blockers.'}\n\n[ACTION ITEMS]\n1. Complete pending compliance checks.\n2. Follow up with department heads by Friday.\n\n[NEXT SYNC]\n- Scheduled for next Thursday at 3:00 PM.`;
+    const notes = document.getElementById('rawNotesInput').value.trim();
+    
+    const momText = `[MINUTES OF MEETING (MoM)]\n\nMEETING SUMMARY & DISCUSSIONS:\n${notes || '- Reviewed ongoing sprint tasks and operational items.'}\n\n[KEY ACTION ITEMS]\n1. Complete pending verification checks - Owner: [Assigned Name] - Deadline: [Date]\n2. Follow up with department leads - Owner: [Assigned Name] - Deadline: [Date]\n\n[NEXT SYNC SCHEDULE]\n- Date: Next week\n- Time: 3:00 PM IST`;
+    
     document.getElementById('editableMomBox').value = momText;
 }
 
+/* ==================== SHIFT & EXPENSE CALCULATORS ==================== */
 function calcShift() {
     const rate = parseFloat(document.getElementById('shiftRate').value) || 0;
     const count = parseFloat(document.getElementById('shiftCount').value) || 0;
