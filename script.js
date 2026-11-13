@@ -84,9 +84,9 @@ const toolsData = {
         `
     },
 
-    // 2. STATE LEAVE PLANNER TOOL
+    // 2. STATE LEAVE PLANNER TOOL (WITH ACTUAL CALENDAR MARKINGS)
     leave: {
-        title: "State-Wise Indian Leave & Long Weekend Planner",
+        title: "State-Wise Indian Leave & Holiday Calendar Planner",
         content: `
             <div class="space-y-4">
                 <div>
@@ -100,8 +100,8 @@ const toolsData = {
                     </select>
                 </div>
 
-                <div id="leaveCalendarContent" class="space-y-3">
-                    <!-- Populated dynamically via updateLeaveCalendar() -->
+                <div id="leaveCalendarContent" class="space-y-4">
+                    <!-- Populated dynamically -->
                 </div>
             </div>
         `
@@ -303,24 +303,79 @@ function updateLeaveCalendar() {
     const container = document.getElementById('leaveCalendarContent');
     if(!container) return;
 
-    let stateHolidays = {
-        Karnataka: "Karnataka Rajyotsava (Nov 1), Ugadi (Mar/Apr), Mahashivratri",
-        Maharashtra: "Ganesh Chaturthi (Sep), Gudi Padwa (Mar), Maharashtra Day (May 1)",
-        Delhi: "Republic Day (Jan 26), Independence Day (Aug 15), Diwali, Gandhi Jayanti",
-        TamilNadu: "Pongal (Jan), Tamil New Year (Apr), Ayudha Pooja",
-        Telangana: "Bonalu, Bathukamma (Sep/Oct), Ugadi"
+    // State specific + National holidays mapping
+    let holidayData = {
+        Karnataka: [
+            { date: "Jan 26 (Mon)", name: "Republic Day (National)", type: "national" },
+            { date: "Feb 26 (Thu)", name: "Maha Shivaratri", type: "festival" },
+            { date: "Mar 30 (Mon)", name: "Ugadi (State New Year)", type: "state" },
+            { date: "May 01 (Fri)", name: "May Day / Labour Day", type: "national" },
+            { date: "Aug 15 (Sat)", name: "Independence Day (National)", type: "national" },
+            { date: "Nov 01 (Sun)", name: "Karnataka Rajyotsava", type: "state" },
+            { date: "Oct 20 (Tue)", name: "Diwali / Deepavali", type: "festival" },
+            { date: "Dec 25 (Fri)", name: "Christmas Day", type: "national" }
+        ],
+        Maharashtra: [
+            { date: "Jan 26 (Mon)", name: "Republic Day (National)", type: "national" },
+            { date: "Feb 26 (Thu)", name: "Maha Shivaratri", type: "festival" },
+            { date: "Mar 30 (Mon)", name: "Gudi Padwa (State New Year)", type: "state" },
+            { date: "May 01 (Fri)", name: "Maharashtra Day", type: "state" },
+            { date: "Aug 15 (Sat)", name: "Independence Day (National)", type: "national" },
+            { date: "Sep 14 (Mon)", name: "Ganesh Chaturthi", type: "state" },
+            { date: "Oct 20 (Tue)", name: "Diwali / Deepavali", type: "festival" },
+            { date: "Dec 25 (Fri)", name: "Christmas Day", type: "national" }
+        ],
+        Delhi: [
+            { date: "Jan 26 (Mon)", name: "Republic Day (National)", type: "national" },
+            { date: "Mar 14 (Sat)", name: "Holi", type: "festival" },
+            { date: "May 01 (Fri)", name: "May Day", type: "national" },
+            { date: "Aug 15 (Sat)", name: "Independence Day (National)", type: "national" },
+            { date: "Oct 02 (Fri)", name: "Gandhi Jayanti (National)", type: "national" },
+            { date: "Oct 20 (Tue)", name: "Diwali (Major Regional)", type: "festival" },
+            { date: "Dec 25 (Fri)", name: "Christmas Day", type: "national" }
+        ],
+        TamilNadu: [
+            { date: "Jan 14 (Wed)", name: "Pongal / Makar Sankranti", type: "state" },
+            { date: "Jan 26 (Mon)", name: "Republic Day (National)", type: "national" },
+            { date: "Apr 14 (Tue)", name: "Tamil New Year / Dr. Ambedkar Jayanti", type: "state" },
+            { date: "Aug 15 (Sat)", name: "Independence Day (National)", type: "national" },
+            { date: "Oct 20 (Tue)", name: "Diwali / Deepavali", type: "festival" },
+            { date: "Dec 25 (Fri)", name: "Christmas Day", type: "national" }
+        ],
+        Telangana: [
+            { date: "Jan 26 (Mon)", name: "Republic Day (National)", type: "national" },
+            { date: "Mar 30 (Mon)", name: "Ugadi", type: "state" },
+            { date: "Aug 15 (Sat)", name: "Independence Day (National)", type: "national" },
+            { date: "Sep 28 (Mon)", name: "Bathukamma Festival Start", type: "state" },
+            { date: "Oct 20 (Tue)", name: "Diwali", type: "festival" },
+            { date: "Dec 25 (Fri)", name: "Christmas Day", type: "national" }
+        ]
     };
 
+    let selectedHolidays = holidayData[state] || holidayData["Karnataka"];
+
+    let listHtml = selectedHolidays.map(h => `
+        <div class="flex items-center justify-between p-3 bg-slate-900 rounded-xl border border-slate-800 text-xs">
+            <span class="font-semibold text-emerald-400">${h.date}</span>
+            <span class="text-slate-200">${h.name}</span>
+            <span class="px-2 py-0.5 rounded text-[10px] uppercase font-bold ${h.type === 'national' ? 'bg-blue-500/20 text-blue-300' : h.type === 'state' ? 'bg-purple-500/20 text-purple-300' : 'bg-amber-500/20 text-amber-300'}">${h.type}</span>
+        </div>
+    `).join('');
+
     container.innerHTML = `
-        <div class="p-4 bg-slate-950 rounded-xl border border-slate-800 text-sm space-y-3">
-            <h4 class="font-bold text-emerald-400">📅 ${state} Holiday & Long Weekend Strategy</h4>
-            <div class="p-3 bg-slate-900 rounded-lg border border-slate-800 text-xs">
-                <strong>Key State Public Holidays:</strong> ${stateHolidays[state]} + All National Public Holidays (26 Jan, 15 Aug, 2 Oct, Diwali, Christmas).
+        <div class="p-4 bg-slate-950 rounded-xl border border-slate-800 space-y-3 text-sm">
+            <h4 class="font-bold text-white flex items-center justify-between">
+                <span>🗓️ ${state} Marked Holiday Calendar</span>
+                <span class="text-xs text-emerald-400 font-normal">National & State Public Holidays</span>
+            </h4>
+            <div class="space-y-2">
+                ${listHtml}
             </div>
-            <div class="space-y-2 text-xs text-slate-300">
-                <div class="p-2.5 bg-slate-900/60 rounded-lg"><strong>August:</strong> Take 1 day leave on Friday for Independence Day weekend (4-day break).</div>
-                <div class="p-2.5 bg-slate-900/60 rounded-lg"><strong>October:</strong> Plan 2 days leave around Diwali & Gandhi Jayanti for a 5 to 9-day holiday.</div>
-                <div class="p-2.5 bg-slate-900/60 rounded-lg"><strong>December:</strong> Take 3 days leave between Christmas & New Year for a 9-day year-end trip.</div>
+            <div class="p-3 bg-emerald-950/20 border border-emerald-500/30 rounded-lg text-xs text-slate-300 space-y-1 mt-3">
+                <strong class="text-emerald-400 block font-bold">💡 Month-by-Month Long Weekend Tips for ${state}:</strong>
+                <p>• <strong>August:</strong> Aug 15 is Saturday. Combine with Friday or Monday for a 3-day weekend.</p>
+                <p>• <strong>October:</strong> Diwali falls around mid-week/Tuesday. Take Monday off for a solid 4-day festive break.</p>
+                <p>• <strong>December:</strong> Christmas falls on Friday. Direct 3-day weekend without using extra leaves!</p>
             </div>
         </div>
     `;
